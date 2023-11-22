@@ -2,8 +2,6 @@
 kind: ClusterRole
 metadata:
   name: {{ .name }}-viewer-role
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
   namespace: {{ .name }}
 rules:
 - apiGroups:
@@ -115,6 +113,6 @@ rules:
   - get
   - list
   - watch
-  
+
 ---
 {{- end }}

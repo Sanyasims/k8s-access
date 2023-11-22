@@ -2,8 +2,6 @@
 kind: Role
 metadata:
   name: {{ .name }}-admin-role
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
   namespace: {{ .name }}
 rules:
 - apiGroups:

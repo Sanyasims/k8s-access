@@ -334,4 +334,5 @@ rules:
   - list
   - watch
 
+---
 {{- end }}

@@ -1,5 +1,5 @@
 namespaces:
-- name: udl-prod1
+- name: udl-prod
   admins: 
   - nekit538@gmail.com
   viewers:

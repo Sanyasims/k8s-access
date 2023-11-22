@@ -1,5 +1,6 @@
 {{- range .Values.namespaces }}
 kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: {{ .name }}-admin-role
   namespace: {{ .name }}

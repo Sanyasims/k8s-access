@@ -4,5 +4,8 @@ namespaces:
   - nekit538@gmail.com
   viewers:
   - artemenko.n.argonlabs@gmail.com
-
-  
+- name: udl-stage
+  admins: 
+  - nekit538@gmail.com
+  viewers:
+  - artemenko.n.argonlabs@gmail.com

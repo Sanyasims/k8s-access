@@ -1,0 +1,9 @@
+cluster:
+  # for devops team 
+  admin:
+  - artemenko.n.argonlabs@gmail.com
+
+  # for developers
+  edit: []
+
+namespaces: []

@@ -11,8 +11,8 @@ subjects:
   apiGroup: rbac.authorization.k8s.io
 {{- end}}
 roleRef:
-  kind: Role
-  name: {{ .name }}-admin-role
+  kind: ClusterRole
+  name: admin
   apiGroup: rbac.authorization.k8s.io
 
 ---

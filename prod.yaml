@@ -1,3 +1,7 @@
+cluster:
+  admins: []
+  viewers: []
+
 namespaces:
 - name: udl-prod
   admins: 

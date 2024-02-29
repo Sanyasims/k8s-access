@@ -6,4 +6,5 @@ cluster:
   # for developers
   edit: []
 
-namespaces: []
+namespaces:
+- name: doubler-demo

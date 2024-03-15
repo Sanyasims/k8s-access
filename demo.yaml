@@ -1,10 +1,12 @@
 cluster:
   # for devops team 
   admin:
-  - artemenko.n.argonlabs@gmail.com
-
-  # for developers
-  edit: []
-
+  - artesan538@gmail.com
+  - gr.azatyan@gmail.com
+  - althazari@gmail.com
 namespaces:
 - name: doubler-demo
+  admins: 
+  []
+  viewers:
+  []

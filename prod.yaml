@@ -1,15 +1,18 @@
 cluster:
-  admins: []
-  viewers: []
+  # for devops team 
+  admin:
+  - artesan538@gmail.com
+  - gr.azatyan@gmail.com
+  - althazari@gmail.com
 
 namespaces:
-- name: udl-prod
+- name: doubler-prod
   admins: 
-  - nekit538@gmail.com
+  []
   viewers:
-  - artemenko.n.argonlabs@gmail.com
-- name: udl-stage
+  []
+- name: doubler-stage
   admins: 
-  - nekit538@gmail.com
+  []
   viewers:
-  - artemenko.n.argonlabs@gmail.com
+  []

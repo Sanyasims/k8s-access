@@ -6,7 +6,5 @@ cluster:
   - althazari@gmail.com
 namespaces:
 - name: doubler-demo
-  admins: 
-  []
-  viewers:
-  []
+  admins: []
+  viewers: []

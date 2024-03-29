@@ -1,0 +1,26 @@
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "terraform"'
+
+stages:
+  # - plan
+  - sync
+
+
+# plan:
+#   tags:
+#     - terraform
+#   stage: plan
+#   image: registry.argondeploy.ru/infra/tools:terraform
+#   script:
+#   - terraform init
+#   - terraform plan --var-file groups.tfvars --var-file projects.tfvars
+
+sync:
+  tags:
+    - gcp-prod
+  stage: sync
+  image: registry.argondeploy.ru/infra/tools:terraform
+  script:
+  - terraform init
+  - terraform apply -auto-approve # --var-file groups.tfvars --var-file projects.tfvars

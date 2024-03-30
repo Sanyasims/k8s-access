@@ -65,7 +65,7 @@ resource "kubernetes_role_binding" "viewers" {
     content {
       
       kind      = "User"
-      name      = each.value
+      name      = subject.value
       api_group = "rbac.authorization.k8s.io"
     }
   }

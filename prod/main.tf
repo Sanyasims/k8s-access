@@ -51,7 +51,7 @@ resource "kubernetes_role_binding" "viewers" {
 
   for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
   metadata {
-    name      = concat(each.key, "-viewers")
+    name      = format("%s-/%s",each.key,"viewers")
     namespace = each.key
   }
   role_ref {

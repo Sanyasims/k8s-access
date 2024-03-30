@@ -22,6 +22,7 @@ sync-prod:
   stage: sync
   image: registry.argondeploy.ru/infra/tools:terraform
   script:
+  - export GOOGLE_CREDENTIALS=$GCP_ARGONDEPLOY_KEY
   - cd prod
   - terraform init
   - terraform apply -auto-approve # --var-file groups.tfvars --var-file projects.tfvars

@@ -27,10 +27,6 @@ variable "namespaces" {
   {
     namespace = "terraform-example-namespace"
     users = []
-  },
-  {
-    namespace = "terraform-example-namespace111"
-    users = []
   }
   ]
 

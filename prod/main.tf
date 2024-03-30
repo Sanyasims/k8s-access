@@ -43,6 +43,6 @@ resource "kubernetes_namespace" "namespace" {
     name = each.key
   }
   lifecycle {
-    prevent_destroy = false
+    prevent_destroy = true
   }
 }

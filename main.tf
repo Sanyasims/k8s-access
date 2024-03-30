@@ -20,6 +20,7 @@ variable "namespaces" {
     users = [
       {
         name = "artemenko.n.argonlabs@gmail.com"
+        role = "viewer"
       }
     ]
   }

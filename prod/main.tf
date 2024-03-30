@@ -1,6 +1,14 @@
 provider "kubernetes" {
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "terraform-state-argond"
+    prefix = "cluster/prod"
+  }
+}
+
+
 variable "cluster_admins" {
   type = list(object({
     name = string

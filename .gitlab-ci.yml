@@ -16,11 +16,12 @@ stages:
 #   - terraform init
 #   - terraform plan --var-file groups.tfvars --var-file projects.tfvars
 
-sync:
+sync-prod:
   tags:
     - gcp-prod
   stage: sync
   image: registry.argondeploy.ru/infra/tools:terraform
   script:
+  - cd prod
   - terraform init
   - terraform apply -auto-approve # --var-file groups.tfvars --var-file projects.tfvars

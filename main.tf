@@ -5,6 +5,7 @@ variable "cluster_admins" {
   type = list(object({
     name = string
   }))
+  default = [ ]
 }
 variable "namespaces" {
   type = list(object({

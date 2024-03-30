@@ -51,12 +51,12 @@ resource "kubernetes_role_binding" "viewers" {
 
   for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
   metadata {
-    name      = format("%s-/%s",each.key,"viewers")
+    name      = format("%s-%s",each.key,"viewers")
     namespace = each.key
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
-    kind      = "Role"
+    kind      = "ClusterRole"
     name      = "viewer"
   }
 

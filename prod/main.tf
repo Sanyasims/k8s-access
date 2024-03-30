@@ -37,11 +37,11 @@ variable "namespaces" {
 
 }
 
-resource "kubernetes_namespace" "namespace" {
-  metadata {
-    name = "terraform-example-namespace"
-  }
-  lifecycle {
-    prevent_destroy = true
-  }
-}
+# resource "kubernetes_namespace" "namespace" {
+#   metadata {
+#     name = "terraform-example-namespace"
+#   }
+#   lifecycle {
+#     prevent_destroy = true
+#   }
+# }

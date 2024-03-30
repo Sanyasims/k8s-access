@@ -26,22 +26,27 @@ variable "namespaces" {
   default = [ 
   {
     namespace = "terraform-example-namespace"
-    users = [
-      {
-        name = "artemenko.n.argonlabs@gmail.com"
-        role = "viewer"
-      }
-    ]
+    users = []
+  },
+  {
+    namespace = "terraform-example-namespace111"
+    users = []
   }
   ]
 
 }
 
-# resource "kubernetes_namespace" "namespace" {
-#   metadata {
-#     name = "terraform-example-namespace"
-#   }
-#   lifecycle {
-#     prevent_destroy = true
-#   }
-# }
+      # {
+      #   name = "artemenko.n.argonlabs@gmail.com"
+      #   role = "viewer"
+      # }
+
+resource "kubernetes_namespace" "namespace" {
+  for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
+  metadata {
+    name = each.key
+  }
+  lifecycle {
+    prevent_destroy = true
+  }
+}

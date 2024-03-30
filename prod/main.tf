@@ -18,24 +18,24 @@ variable "cluster_admins" {
 variable "namespaces" {
   type = list(object({
     namespace = string,
-    users = list(object({
-      name = string,
-      role = string
-    }))
+    viewers = list(string),
+    editors = list(string)
   }))
   default = [ 
   {
     namespace = "terraform-example-namespace"
-    users = []
+    viewers = [
+      "artemenko.n.argonlabs@gmail.com"
+    ]
+    editors = [
+
+    ]
   }
   ]
 
 }
 
-      # {
-      #   name = "artemenko.n.argonlabs@gmail.com"
-      #   role = "viewer"
-      # }
+     
 
 resource "kubernetes_namespace" "namespace" {
   for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
@@ -44,5 +44,29 @@ resource "kubernetes_namespace" "namespace" {
   }
   lifecycle {
     prevent_destroy = true
+  }
+}
+
+resource "kubernetes_role_binding" "viewers" {
+
+  for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
+  metadata {
+    name      = concat(each.key, "-viewers")
+    namespace = each.key
+  }
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind      = "Role"
+    name      = "viewer"
+  }
+
+  dynamic "subject" {
+    for_each = toset(each.value.viewers)
+    content {
+      
+      kind      = "User"
+      name      = each.value
+      api_group = "rbac.authorization.k8s.io"
+    }
   }
 }

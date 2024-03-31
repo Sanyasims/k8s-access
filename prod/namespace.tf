@@ -11,7 +11,10 @@ resource "kubernetes_namespace" "namespace" {
 
 resource "kubernetes_role_binding" "viewers" {
 
-  for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
+  for_each = { 
+    for namespace in var.namespaces : namespace.namespace => namespace
+    if length(namespace.viewers) > 0  
+  }
   metadata {
     name      = format("%s-%s",each.key,"viewers")
     namespace = each.key

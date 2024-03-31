@@ -1,4 +1,5 @@
 resource "kubernetes_cluster_role_binding" "cluster_admins" {
+  count = length(var.cluster_admins) > 0 ? 1 : 0
   metadata {
     name = "cluster-admins"
   }
@@ -30,6 +31,7 @@ resource "kubernetes_cluster_role" "developer" {
 }
 
 resource "kubernetes_cluster_role_binding" "cluster_developers" {
+  count = length(var.cluster_developers) > 0 ? 1 : 0
   metadata {
     name = "cluster-developers"
   }

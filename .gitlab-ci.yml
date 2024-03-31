@@ -25,4 +25,4 @@ sync-prod:
   - export GOOGLE_CREDENTIALS=$GCP_ARGONDEPLOY_KEY
   - cd prod
   - terraform init
-  - terraform apply -auto-approve # --var-file groups.tfvars --var-file projects.tfvars
+  - terraform apply -auto-approve --var-file access.tfvars

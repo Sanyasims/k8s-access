@@ -8,37 +8,11 @@ terraform {
   }
 }
 
-# Полный доступ к кластеру
-variable "cluster_admins" {
-  type = list(string)
-  default = [
-    "artesan538@gmail.com",
-    "gr.azatyan@gmail.com",
-    "althazari@gmail.com"
-  ]
-}
+module "rbac" {
+  source = "../modules/rbac"
 
-# Просмотр существующих нод и неймспейсов
-variable "cluster_developers" {
-  type = list(string)
-  default = [
+  cluster_admins = var.cluster_admins
+  cluster_developers = var.cluster_developers
 
-  ]
-}
-
-variable "namespaces" {
-  type = list(object({
-    namespace = string,
-    viewers = list(string),
-    editors = list(string)
-  }))
-  default = [ 
-    {
-      namespace = "terraform-example-namespace"
-      viewers = [
-      ]
-      editors = [
-      ]
-    }
-  ]
+  namespaces = var.namespaces
 }

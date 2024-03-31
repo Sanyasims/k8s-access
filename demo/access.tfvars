@@ -11,14 +11,7 @@ cluster_developers = [
 
 namespaces = [ 
   {
-    namespace = "doubler-prod"
-    viewers = [
-    ]
-    editors = [
-    ]
-  },
-  {
-    namespace = "doubler-stage"
+    namespace = "doubler-demo"
     viewers = [
     ]
     editors = [

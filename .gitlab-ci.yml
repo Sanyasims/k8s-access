@@ -26,3 +26,14 @@ sync-prod:
   - cd prod
   - terraform init
   - terraform apply -auto-approve --var-file access.tfvars
+
+sync-demo:
+  tags:
+    - gcp-demo
+  stage: sync
+  image: registry.argondeploy.ru/infra/tools:terraform
+  script:
+  - export GOOGLE_CREDENTIALS=$GCP_ARGONDEPLOY_KEY
+  - cd demo
+  - terraform init
+  - terraform apply -auto-approve --var-file access.tfvars

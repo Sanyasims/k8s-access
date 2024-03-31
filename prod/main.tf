@@ -22,7 +22,7 @@ variable "cluster_admins" {
 variable "cluster_developers" {
   type = list(string)
   default = [
-    "artemenko.n.argonlabs@gmail.com"
+
   ]
 }
 

@@ -57,7 +57,7 @@ resource "kubernetes_role_binding" "viewers" {
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = "viewer"
+    name      = "view"
   }
 
   dynamic "subject" {

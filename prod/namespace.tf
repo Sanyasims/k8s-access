@@ -25,12 +25,6 @@ resource "kubernetes_role_binding" "viewers" {
     name      = "view"
   }
 
-  subject {
-    kind      = "User"
-    name      = "nobody"
-    api_group = "rbac.authorization.k8s.io"
-  }
-
   dynamic "subject" {
     for_each = toset(each.value.viewers)
     content {

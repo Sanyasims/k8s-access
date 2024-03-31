@@ -25,17 +25,16 @@ variable "namespaces" {
   {
     namespace = "terraform-example-namespace"
     viewers = [
-      "artemenko.n.argonlabs@gmail.com"
+      "testuser1@gmail.com",
+      "testuser2@gmail.com"
     ]
     editors = [
-
+      "artemenko.n.argonlabs@gmail.com"
     ]
   }
   ]
 
 }
-
-     
 
 resource "kubernetes_namespace" "namespace" {
   for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
@@ -62,6 +61,30 @@ resource "kubernetes_role_binding" "viewers" {
 
   dynamic "subject" {
     for_each = toset(each.value.viewers)
+    content {
+      
+      kind      = "User"
+      name      = subject.value
+      api_group = "rbac.authorization.k8s.io"
+    }
+  }
+}
+
+resource "kubernetes_role_binding" "editors" {
+
+  for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
+  metadata {
+    name      = format("%s-%s",each.key,"editors")
+    namespace = each.key
+  }
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind      = "ClusterRole"
+    name      = "edit"
+  }
+
+  dynamic "subject" {
+    for_each = toset(each.value.editors)
     content {
       
       kind      = "User"

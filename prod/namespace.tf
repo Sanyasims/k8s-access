@@ -41,7 +41,10 @@ resource "kubernetes_role_binding" "viewers" {
 
 resource "kubernetes_role_binding" "editors" {
 
-  for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
+  for_each = { 
+    for namespace in var.namespaces : namespace.namespace => namespace 
+    if length(namespace.editors) > 0
+  }
   metadata {
     name      = format("%s-%s",each.key,"editors")
     namespace = each.key
@@ -52,11 +55,6 @@ resource "kubernetes_role_binding" "editors" {
     name      = "edit"
   }
 
-  subject {
-    kind      = "User"
-    name      = "nobody"
-    api_group = "rbac.authorization.k8s.io"
-  }
   dynamic "subject" {
     for_each = toset(each.value.editors)
     content {

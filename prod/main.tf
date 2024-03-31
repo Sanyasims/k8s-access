@@ -12,14 +12,14 @@ terraform {
 variable "cluster_admins" {
   type = list(string)
   default = [
-    "artemenko.n.argonlabs@gmail.com"
+
   ]
 }
 
 variable "cluster_developers" {
   type = list(string)
   default = [
-
+    "artemenko.n.argonlabs@gmail.com"
   ]
 }
 

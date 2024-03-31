@@ -4,7 +4,7 @@ resource "kubernetes_namespace" "namespace" {
     name = each.key
   }
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 

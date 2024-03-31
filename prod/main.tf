@@ -8,14 +8,17 @@ terraform {
   }
 }
 
-
+# Полный доступ к кластеру
 variable "cluster_admins" {
   type = list(string)
   default = [
-    "artesan538@gmai.com"
+    "artesan538@gmail.com",
+    "gr.azatyan@gmail.com",
+    "althazari@gmail.com"
   ]
 }
 
+# Просмотр существующих нод и неймспейсов
 variable "cluster_developers" {
   type = list(string)
   default = [
@@ -30,15 +33,12 @@ variable "namespaces" {
     editors = list(string)
   }))
   default = [ 
-  {
-    namespace = "terraform-example-namespace"
-    viewers = [
-      "testuser1@gmail.com",
-      "testuser2@gmail.com"
-    ]
-    editors = [
-      "artemenko.n.argonlabs@gmail.com"
-    ]
-  }
+    {
+      namespace = "terraform-example-namespace"
+      viewers = [
+      ]
+      editors = [
+      ]
+    }
   ]
 }

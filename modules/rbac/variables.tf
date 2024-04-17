@@ -16,3 +16,7 @@ variable "namespaces" {
   }))
   default = []
 }
+
+variable "DOCKER_CONFIG" {
+  type = string
+}

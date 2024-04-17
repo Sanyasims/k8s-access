@@ -62,3 +62,19 @@ resource "kubernetes_role_binding" "editors" {
     }
   }
 }
+
+
+
+resource "kubernetes_secret" "docker_registry_secret" {
+  for_each = { for namespace in var.namespaces : namespace.namespace => namespace }
+  metadata {
+    name = "docker-registry-secret"
+    namespace = each.key
+  }
+
+  data = {
+    ".dockerconfigjson" = var.DOCKER_CONFIG
+  }
+
+  type = "kubernetes.io/dockerconfigjson"
+}

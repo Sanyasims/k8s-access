@@ -13,8 +13,12 @@ module "rbac" {
 
   cluster_admins = var.cluster_admins
   cluster_developers = var.cluster_developers
-
   namespaces = var.namespaces
+  DOCKER_CONFIG = var.DOCKER_CONFIG
+}
+
+variable "DOCKER_CONFIG" {
+  type = string
 }
 
 variable "cluster_admins" {

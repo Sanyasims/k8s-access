@@ -22,6 +22,12 @@ namespaces = [
     viewers = [
     ]
     editors = [
+      "zubarev.aleksei.al@gmail.com",    # Zubarev Aleksey
+      "mark.konstantinovi4@gmail.com",   # Laul Mark
+      "sergeypolyakow@gmail.com",        # Polyakov Sergey
+      "jonsbox666@gmail.com",            # Korniltsev Evgeniy
+      "kolesnikrv94@gmail.com",          # Kolesnik Roman
+      "antony.cotony@gmail.com"          # Stepanov Anton
     ]
   }
 ]
